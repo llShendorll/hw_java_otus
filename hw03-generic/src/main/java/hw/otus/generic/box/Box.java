@@ -13,10 +13,8 @@ public class Box<T extends Items>  {
         return items.stream().mapToInt(T::getWeight).sum();
     }
 
-    public void addItem(T item, int cnt) {
-        for (int i = 1; i <= cnt; i++) {
-            items.add(item);
-        }
+    public void addItem(T item) {
+        items.add(item);
     }
 
     public boolean compare(Box<? extends Items> box) {
@@ -27,10 +25,14 @@ public class Box<T extends Items>  {
     }
 
     public void shift(Box<? super T> newBox) {
-        for (T oldItem: getItems()) {
-            newBox.addItem(oldItem, 1);
+        System.out.println(this);
+        System.out.println(newBox);
+        if (newBox != this && newBox != null) {
+            for (T oldItem: getItems()) {
+                newBox.addItem(oldItem);
+            }
+            items.clear();
         }
-        items.clear();
     }
 }
 
