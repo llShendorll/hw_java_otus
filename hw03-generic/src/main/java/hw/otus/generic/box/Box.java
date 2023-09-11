@@ -25,8 +25,6 @@ public class Box<T extends Items>  {
     }
 
     public void shift(Box<? super T> newBox) {
-        System.out.println(this);
-        System.out.println(newBox);
         if (newBox != this && newBox != null) {
             for (T oldItem: getItems()) {
                 newBox.addItem(oldItem);
