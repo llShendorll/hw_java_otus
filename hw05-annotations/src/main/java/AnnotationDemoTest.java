@@ -22,7 +22,6 @@ public class AnnotationDemoTest {
     }
 
     @After
-    @Before
     public void afterTest() {
         System.out.println("after");
     }
