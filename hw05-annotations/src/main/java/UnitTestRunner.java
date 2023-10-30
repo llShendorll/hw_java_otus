@@ -2,8 +2,11 @@ import hw.otus.annotations.*;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.logging.Logger;
 
 public class UnitTestRunner<T> {
+
+    private static final Logger log = Logger.getLogger("InfoLogging");
 
     public void runAllTests(T cls) {
         annotation(cls, Before.class);
@@ -17,7 +20,7 @@ public class UnitTestRunner<T> {
                 try {
                     method.invoke(cls);
                 } catch (Exception e) {
-                    System.out.println("Тест " + method.getName() + " не пройден - " + e.getMessage());
+                    log.info("Тест " + method.getName() + " не пройден - " + e.getMessage());
                 }
             }
         }
