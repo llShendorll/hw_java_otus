@@ -1,4 +1,5 @@
 rootProject.name = 'hw_java_otus'
 include 'hw01-gradle'
 include 'hw03-generic'
+include 'hw05-annotations'
 
